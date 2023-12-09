@@ -33,3 +33,12 @@ class Group(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     description = models.TextField()
+
+
+class Follow(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='followers'
+    )
+    following = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='followings'
+    )
