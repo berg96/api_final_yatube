@@ -32,6 +32,7 @@ python3 manage.py runserver
 ### Примеры запросов
 
 GET: http://127.0.0.1:8000/api/v1/posts/{id}/
+
 Response:
 {
   "id": 0,
@@ -43,10 +44,12 @@ Response:
 }
 
 POST: http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
+
 Payload:
 {
   "text": "string"
 }
+
 Response:
 {
   "id": 0,
@@ -56,5 +59,5 @@ Response:
   "post": 0
 }
 
-# Более подробно в документации 
+### Более подробно в документации 
 http://127.0.0.1:8000/redoc/
