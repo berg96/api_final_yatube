@@ -40,9 +40,6 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 class FollowViewSet(viewsets.ModelViewSet):
     serializer_class = FollowSerializer
 
-    # def get_user(self):
-    #     return get_object_or_404(User, user=self.request.user)
-
     def get_queryset(self):
         return self.request.user.followings.all()
 
