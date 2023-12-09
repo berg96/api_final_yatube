@@ -13,7 +13,10 @@ class Post(models.Model):
         upload_to='posts/', null=True, blank=True)
 
     def __str__(self):
-        return self.text
+        return (
+            f'{self.text[:20]}|{self.pub_date: %Y-%m-%d %H:%M:%S}'
+            f'|{self.author.username[:20]}'
+        )
 
 
 class Comment(models.Model):
@@ -24,3 +27,9 @@ class Comment(models.Model):
     text = models.TextField()
     created = models.DateTimeField(
         'Дата добавления', auto_now_add=True, db_index=True)
+
+
+class Group(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    description = models.TextField()
